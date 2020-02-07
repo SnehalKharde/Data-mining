@@ -1,11 +1,15 @@
 library(stringr)
 library(kernlab)
-data1 <- read.csv("/Users/Ajay/Desktop/t2.csv")
+data1 <- read.csv("path-for-csv-file/filename.csv")
 
+#number of lines to be used to train the data
 train<-data1[1:1000,]
+#number of lines to test data
 test<-data1[3001:3009,]
 
+#train SVM algorithm 
 classifier <- ksvm(sentiment~., data = train, kernel = "rbfdot")
+
 
 prediction<-predict(classifier,test)
 
